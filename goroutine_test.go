@@ -1,4 +1,4 @@
-package main
+package latihangolanggoroutine
 
 import (
 	"fmt"
@@ -7,27 +7,24 @@ import (
 )
 
 func RunHelloWorld() {
-
 	fmt.Println("Hello World")
 }
 
-func TestHelloWorld(t *testing.T) {
+func TestCreateGoroutine(t *testing.T) {
 	go RunHelloWorld()
 	fmt.Println("Ups")
 
 	time.Sleep(1 * time.Second)
-
 }
 
 func DisplayNumber(number int) {
-	fmt.Println("Number ke  ", number)
+	fmt.Println("Display", number)
 }
 
 func TestManyGoroutine(t *testing.T) {
-
-	for i := 0; i <= 100000; i++ {
+	for i := 0; i < 100000; i++ {
 		go DisplayNumber(i)
 	}
 
-	time.Sleep(10 * time.Second)
+	time.Sleep(5 * time.Second)
 }
