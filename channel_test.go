@@ -24,7 +24,7 @@ func TestCreateChannel(t *testing.T) {
 }
 
 func GiveMeResponse(channel chan string) {
-	time.Sleep(2 * time.Second)
+	defer close(channel)
 	channel <- "Faiz Fajar Aprianda"
 	channel <- "WOI"
 
@@ -101,8 +101,6 @@ func TestRangeChannel(t *testing.T) {
 func TestSelectChannel(t *testing.T) {
 	channel1 := make(chan string)
 	channel2 := make(chan string)
-	defer close(channel1)
-	defer close(channel2)
 
 	go GiveMeResponse(channel1)
 	go GiveMeResponse(channel2)
