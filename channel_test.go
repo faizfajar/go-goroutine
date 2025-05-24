@@ -105,6 +105,8 @@ func TestSelectChannel(t *testing.T) {
 	go GiveMeResponse(channel1)
 	go GiveMeResponse(channel2)
 
+	// test
+
 	counter := 0
 	for {
 		select {
